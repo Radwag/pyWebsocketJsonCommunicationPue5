@@ -25,6 +25,7 @@ The available options are in the app:
 * Changing active platform
 * Listing mass from active platform.
 
+
 # Commands
 * {'COMMAND': 'REGISTER_LISTENER', 'PARAM': 'MOD_INFO'} - this command registers the listener on the device which responds with the MOD_INFO command to the connected client automatically after each update of the device data, e.g. weight or time.
 * {'COMMAND': 'EXECUTE_ACTION', 'PARAM': 'ActionChangePlatform'} - this command changes the platform.
@@ -33,7 +34,33 @@ The available options are in the app:
 
 # Structure of the MOD_INFO response
 ![image](https://user-images.githubusercontent.com/46632727/163121941-61360188-f4c5-4ad8-98c6-4c78a6076423.png)
-![image](https://user-images.githubusercontent.com/46632727/163122054-aa663e43-6854-4c12-bb61-ebd5b4144f02.png)
+![image](https://user-images.githubusercontent.com/46632727/163131056-cd2012e1-c402-4cee-a3a4-1b8f21563dab.png)
+
+* Date(string) - current date and time from scale
+* ActivePlatformIndex(intiger) - active platform index
+* Mass(array) - array list of results
+  * NetAct(array) - the current result
+    * Value(double) - current value
+    * Unit(string) - current unit
+    * Precision(intiger) - current precision
+  * NetCal(array) - the calibration result
+    * Value(double) - calibration value
+    * Unit(string) - calibration unit
+    * Precision(intiger) - calibration precision
+  
+  * Tare(double) - tare value
+  * Range(string) - range value
+  * Max(double) - maximum calibration capacity
+  * MaxAct(double) - maximum current capacity
+  * IsStab(boolean) - if stable
+  * IsTare(boolean) - if tared
+  * IsZero(boolean) - if zeroed
+  * HighlightedDigits(intiger) - the number of shaded digits
+  * HiddenDigits(intiger) - the number of hidden digits
+  * WeighingStatus(string) - weighing status
+  * PlatformIndex(intiger) - index of platform
+  * ErrorText(string) - the text of the error
+  * BruttoInCal(double) - gross in adjustment weight
 
 # Installation
 1. Clone or download this repository.
